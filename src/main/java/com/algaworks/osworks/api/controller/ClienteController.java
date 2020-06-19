@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.algaworks.osworks.domain.model.Cliente;
 import com.algaworks.osworks.domain.repository.ClienteRepository;
+import com.algaworks.osworks.domain.service.CadastroClienteService;
 
 @RestController
 @RequestMapping("/clientes")
@@ -27,7 +28,10 @@ public class ClienteController {
 
 	@Autowired
 	ClienteRepository clienteRepository;
-
+	
+	@Autowired
+	CadastroClienteService cadastroCliente;
+	
 	@GetMapping
 	public List<Cliente> listar() {
 		return clienteRepository.findAll();
