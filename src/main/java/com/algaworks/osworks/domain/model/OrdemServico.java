@@ -19,7 +19,6 @@ import javax.validation.groups.Default;
 
 import org.hibernate.annotations.ManyToAny;
 
-import com.algaworks.osworks.domain.ValidationsGroups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -30,24 +29,16 @@ public class OrdemServico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Valid
-	@ConvertGroup(from = Default.class, to = ValidationsGroups.ClienteId.class )
-	@NotNull
 	@ManyToOne // Muitas ordens para um cliente
 	private Cliente cliente;
 	
 	@JsonProperty(access = Access.READ_ONLY)
 	@Enumerated(EnumType.STRING) // vai armazenar a string que está no enum 
 	private StatusOrdemServico status;
-	@NotBlank
 	private String descricao;
-	@NotNull
 	private BigDecimal preco;
 	
-	@JsonProperty(access = Access.READ_ONLY)
 	private OffsetDateTime dataAbertura;
-	
-	@JsonProperty(access = Access.READ_ONLY)
 	private OffsetDateTime dataFinalizacao;
 
 	public Long getId() {
