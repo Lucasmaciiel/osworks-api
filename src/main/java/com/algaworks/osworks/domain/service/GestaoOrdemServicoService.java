@@ -23,9 +23,6 @@ public class GestaoOrdemServicoService {
 	OrdemServicoRepository ordemServicoRepository;
 	
 	@Autowired
-	StatusOrdemServico statusOrdemServicoRepository;
-	
-	@Autowired
 	ClienteRepository clienteRepository;
 	
 	@Autowired
