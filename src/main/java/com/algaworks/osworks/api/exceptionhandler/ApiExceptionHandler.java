@@ -24,6 +24,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
 	public ResponseEntity<Object> handleEntidadeNaoEncontrada(NegocioExcepetion ex, WebRequest request){
 		var status = HttpStatus.NOT_FOUND;
+		
 		var problema = new Problema();
 		problema.setStatus(status.value());
 		problema.setTitulo(ex.getMessage());
